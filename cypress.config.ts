@@ -21,6 +21,7 @@ async function setupNodeEvents(
 }
 
 export default defineConfig({
+  projectId: "432p28",
   defaultCommandTimeout: 10000,
   chromeWebSecurity: false,
   reporter: "junit",
