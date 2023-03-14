@@ -1,0 +1,19 @@
+
+# Test Results
+/**/.results
+
+
+# Ignore Cypress temporary files and build results
+# Temporary files
+cypress/videos
+cypress/screenshots
+cypress/results
+cypress/movies
+cypress/snapshots
+cypress/reports
+cypress/downloads
+node_modules
+package-lock.json
+# Logs
+logs
+log
