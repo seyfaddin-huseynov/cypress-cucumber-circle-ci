@@ -3,14 +3,20 @@ import { Then } from "@badeball/cypress-cucumber-preprocessor";
 Then(
   "I search for a distance between {string} and {string}",
   (cityName1: string, cityName2: string) => {
-    // type search text and hit Enter right after
-    cy.get('input[type="text"]').as("search").eq(0).clear();
-    cy.wait(1500);
-    cy.get("@search").eq(0).type(cityName1, { force: true, timeout: 10000 });
+    // clear the text then type
+    cy.get('input[type="text"]')
+      .as("search")
+      .eq(0)
+      .type(`{del} ${cityName1}{enter}`, {
+        waitForAnimations: true,
+        timeout: 10000,
+        delay: 90,
+      });
     cy.get("@search")
       .eq(2)
       .should("be.visible")
-      .type(`${cityName2}{enter}`, { force: true, timeout: 10000 });
+      .type(`${cityName2}{enter}`, { waitForAnimations: true, timeout: 10000 });
+    cy.contains("Search").click();
   }
 );
 
